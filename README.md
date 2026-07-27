@@ -185,10 +185,8 @@ This is more informative than average inflation alone because positive and negat
 A correlation heatmap and scatterplots are used to explore relationships between:
 
 - GDP growth and unemployment;
-- inflation and unemployment;
-- GDP growth and inflation.
 
-These relationships are descriptive and are not interpreted as causal.
+This relationship is descriptive and is not interpreted as causal.
 
 > **Methodological note:** Correlation does not imply causality. The observed relationships may reflect common macroeconomic shocks, country-specific institutions or omitted variables.
 
