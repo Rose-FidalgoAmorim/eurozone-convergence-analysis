@@ -141,58 +141,6 @@ The merged dataset follows this structure:
 
 ---
 
-## Analytical Approach
-
-### 1. Time-Series Analysis
-
-Annual trends are compared across countries to identify:
-
-- common business cycles;
-- asymmetric responses to major shocks;
-- persistent structural differences;
-- post-crisis recovery patterns.
-
-### 2. Period Averages
-
-Average GDP growth, inflation and unemployment are calculated for each country over 2000–2023.
-
-These indicators provide concise comparisons of long-term performance, although period averages may conceal substantial changes between sub-periods.
-
-### 3. Cross-Country Unemployment Dispersion
-
-For each year, the population standard deviation of unemployment across Belgium, France, Germany, Italy and Spain is calculated in Power BI.
-
-This produces one cross-country dispersion value for every year:
-
-- decreasing dispersion suggests that national unemployment rates are becoming more similar;
-- increasing dispersion suggests that national labour-market outcomes are diverging.
-
-The European Union aggregate is excluded because it is a benchmark rather than an individual country observation.
-
-### 4. Inflation Stability
-
-Inflation stability is assessed using the **mean absolute deviation from the ECB's 2% target**.
-
-For each country, the Power BI analysis:
-
-1. calculates the absolute annual distance between inflation and 2%;
-2. averages those distances over 2000–2023.
-
-This is more informative than average inflation alone because positive and negative deviations cannot offset one another.
-
-### 5. Cross-Indicator Relationships
-
-A correlation heatmap and scatterplots are used to explore relationships between:
-
-- GDP growth and unemployment;
-
-This relationship is descriptive and is not interpreted as causal.
-
-> **Methodological note:** Correlation does not imply causality. The observed relationships may reflect common macroeconomic shocks, country-specific institutions or omitted variables.
-
-> **Okun's law note:** Okun's law generally relates output growth to changes in unemployment rather than to the unemployment level. The GDP growth–unemployment scatterplot therefore primarily highlights structural differences across countries.
-
----
 
 ## Key Findings
 
@@ -232,13 +180,15 @@ Cross-country unemployment dispersion increased sharply after the global financi
 
 Although dispersion subsequently declined, substantial labour-market differences remained visible in 2023.
 
-### Cross-Indicator Relationships
+### Cross-Indicator Analysis
 
-The scatterplots reveal clear country clusters, particularly in unemployment.
+The correlation heatmap and GDP growth–unemployment scatterplot indicate that the differences between countries cannot be explained by short-term GDP growth alone.
 
-Spain maintained relatively high unemployment even during years of positive GDP growth, whereas Germany recorded substantially lower unemployment across a wide range of growth outcomes.
+Spain maintained high unemployment even during years of positive growth, whereas Germany recorded lower unemployment across a wide range of growth outcomes.
 
-This suggests that labour-market performance depends strongly on structural and institutional factors rather than exclusively on short-term GDP growth.
+This suggests that labour-market institutions, skills, labour-market segmentation and other structural factors may play an important role.
+
+> **Caution:** These relationships are descriptive. Correlation does not imply causality, and the analysis does not control for omitted variables or common macroeconomic shocks.
 
 ---
 
