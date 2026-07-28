@@ -2,83 +2,106 @@
 
 ## Project Overview
 
-This project examines whether five selected major Eurozone economies — **Belgium, France, Germany, Italy and Spain** — converged or diverged in terms of **GDP growth, inflation and unemployment** between 2000 and 2023.
+This project investigates whether five major Eurozone economies — **Belgium, France, Germany, Italy and Spain** — converged or diverged in terms of **GDP growth, inflation and unemployment** between **2000 and 2023**.
 
-Although these countries share a common monetary policy under the European Central Bank, their long-term economic outcomes remain substantially different. The analysis therefore distinguishes between:
+Although these countries share a common monetary framework under the **European Central Bank (ECB)**, their economic trajectories have significantly diverged over time. The objective of this analysis is to distinguish between:
 
-- **common cyclical movements**, driven by shared shocks and monetary conditions;
-- **structural convergence or divergence**, reflected in persistent cross-country differences.
+- **Common cyclical patterns**, caused by shared economic shocks such as the 2008 financial crisis and the COVID-19 pandemic;
+- **Structural differences**, reflected in persistent gaps in growth performance, inflation stability and labour-market outcomes.
 
-The project combines a Python notebook for data preparation and economic analysis with a four-page Power BI dashboard for interactive reporting and visual communication.
+The project combines:
+
+- a **Python-based economic analysis notebook** for data preparation, exploration and statistical analysis;
+- a **Power BI dashboard** for interactive data visualisation and business-oriented communication.
+
+The final output provides both technical analysis and economic interpretation, with insights on convergence challenges within the Eurozone.
 
 ---
 
-## Research Question
+# Research Question
 
-> To what extent did Belgium, France, Germany, Italy and Spain converge in GDP growth, inflation and unemployment between 2000 and 2023?
+**To what extent did Belgium, France, Germany, Italy and Spain converge or diverge in GDP growth, inflation and unemployment between 2000 and 2023?**
 
 ---
 
-## Project Outputs
+# Project Objectives
+
+The analysis aims to:
+
+- Compare long-term economic performance across selected Eurozone economies;
+- Identify similarities and differences in economic cycles;
+- Analyse the impact of major crises;
+- Evaluate inflation stability relative to the ECB's 2% target;
+- Study structural differences in unemployment;
+- Communicate economic insights through interactive dashboards.
+
+---
+
+# Project Outputs
 
 This repository contains:
 
-- three original World Bank indicator datasets;
-- a reproducible Jupyter Notebook;
-- data cleaning and transformation steps;
-- descriptive statistics and time-series analysis;
-- a correlation heatmap and cross-indicator scatterplots;
-- a four-page Power BI dashboard;
-- a PDF dashboard export and dashboard screenshots;
-- economic interpretations, policy implications and limitations.
+- Three raw World Bank indicator datasets;
+- A complete Jupyter Notebook containing:
+  - data cleaning;
+  - transformation pipeline;
+  - exploratory data analysis;
+  - descriptive statistics;
+  - correlation analysis;
+  - SQL-based analysis;
+  - economic interpretation;
+- A four-page Power BI dashboard;
+- Dashboard screenshots and PDF export;
+- Documentation explaining methodology, findings and limitations.
 
 ---
 
-## Tools and Skills
+# Technologies & Skills
 
-### Tools
+## Tools
 
 - Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
+  - Pandas
+  - NumPy
+  - Matplotlib
+  - Seaborn
 - Jupyter Notebook
-- Power Query
+- SQL (SQLite)
 - Power BI
+- Power Query
 - DAX
 - GitHub
 
-### Skills Demonstrated
+## Skills Demonstrated
 
 - Data cleaning and transformation
-- Data validation
-- Exploratory data analysis
-- Descriptive statistics
-- Correlation analysis
-- Time-series visualisation
-- Cross-country comparison
-- DAX measure creation
-- Dashboard design
-- Economic interpretation
-- Policy-oriented communication
-- Technical documentation in English
+- Exploratory Data Analysis (EDA)
+- Time-series analysis
+- Cross-country economic comparison
+- Statistical correlation analysis
+- SQL querying
+- Dashboard creation
+- Data storytelling
+- Business and policy-oriented insights
+- Technical documentation
 
 ---
 
-## Data
+# Data
 
-### Source
+## Source
 
 **World Development Indicators — World Bank**
 
-### Period
+The dataset is publicly available from the World Bank database.
+
+## Period
 
 **2000–2023**
 
-### Geographic Scope
+## Countries Analysed
 
-The five countries included in the main analysis are:
+The main analysis focuses on five Eurozone economies:
 
 - Belgium
 - France
@@ -86,201 +109,277 @@ The five countries included in the main analysis are:
 - Italy
 - Spain
 
-The **European Union aggregate** is included in selected Power BI time-series charts as a benchmark. It is excluded from:
+The European Union aggregate is included in selected Power BI visualisations as a benchmark but excluded from country rankings and main conclusions.
 
-- country rankings;
-- dashboard KPI calculations;
-- cross-country unemployment dispersion;
-- the main five-country conclusions.
+---
 
-### Indicators
+# Indicators
 
-| Indicator | Definition | World Bank Code |
+| Indicator | Description | World Bank Code |
 |---|---|---|
-| GDP Growth | Annual percentage growth rate of GDP | `NY.GDP.MKTP.KD.ZG` |
-| Inflation | Consumer price inflation, annual percentage | `FP.CPI.TOTL.ZG` |
-| Unemployment | Percentage of the total labour force | `SL.UEM.TOTL.ZS` |
+| GDP Growth | Annual percentage growth rate of GDP | NY.GDP.MKTP.KD.ZG |
+| Inflation | Consumer price inflation (annual %) | FP.CPI.TOTL.ZG |
+| Unemployment | Total unemployment rate (% of labour force) | SL.UEM.TOTL.ZS |
 
-### Source Files
+---
 
-The analysis uses the following raw World Bank files:
+# Data Preparation
 
-```text
-API_NY.GDP.MKTP.KD.ZG_DS2_en_csv_v2_57.csv
-API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_285.csv
-API_SL.UEM.TOTL.ZS_DS2_en_csv_v2_33398.csv
+The original World Bank data was downloaded as three separate CSV files:
+
+- GDP growth dataset
+- Inflation dataset
+- Unemployment dataset
+
+The preparation pipeline included:
+
+1. Removing World Bank metadata rows;
+2. Selecting the relevant countries and years;
+3. Reshaping datasets from wide format to long format;
+4. Converting years and indicators into numerical formats;
+5. Merging the three indicators using country and year;
+6. Checking missing values and data consistency;
+7. Creating a final analysis-ready dataset.
+
+The final structure used for analysis:
+
+| Country | Year | GDP Growth | Inflation | Unemployment |
+|---|---|---|---|---|
+| Belgium | 2000 | 3.72 | 2.54 | 6.59 |
+| Germany | 2000 | 2.88 | 1.44 | 7.92 |
+| Spain | 2000 | 5.20 | 3.43 | 13.79 |
+
+---
+
+# Key Findings
+
+## GDP Growth
+
+The five economies followed broadly similar economic cycles, particularly during major external shocks.
+
+Main observations:
+
+- All countries experienced significant contractions during the 2008 financial crisis and the COVID-19 pandemic.
+- Spain recorded the strongest GDP contraction in the dataset, reaching **-10.94% in 2020**.
+- Italy showed the weakest long-term growth performance, with an average annual GDP growth rate of approximately **0.56% between 2000 and 2023**.
+- Despite similar cycles, countries displayed persistent differences in long-term growth capacity.
+
+The results suggest that a shared monetary environment does not automatically lead to economic convergence.
+
+---
+
+## Inflation
+
+Inflation patterns were relatively similar across countries, especially during the low-inflation period of the 2010s.
+
+Key observations:
+
+- Inflation remained close to or below the ECB target for most of the decade before increasing sharply after 2021.
+- During the 2022 inflation shock:
+  - France recorded approximately **5.2% inflation**;
+  - Germany recorded approximately **6.9%**;
+  - Italy, Spain and Belgium exceeded **8%**;
+  - Belgium reached approximately **9.6%**, the highest value in the sample.
+
+France and Germany displayed the most stable inflation performance over the entire period.
+
+---
+
+## Unemployment
+
+Unemployment represents the strongest evidence of structural divergence between countries.
+
+Key findings:
+
+- Spain experienced persistent unemployment challenges, reaching approximately **26% in 2013**.
+- Germany significantly improved its labour market performance, reaching unemployment levels close to **3% in 2023**.
+- Italy experienced long-term labour market difficulties, particularly after the Eurozone sovereign debt crisis.
+- France and Belgium remained in an intermediate position.
+
+The results indicate that economic growth alone does not fully explain unemployment differences. Structural factors such as labour-market institutions, skills mismatch and employment policies appear to play an important role.
+
+---
+
+# Cross-Indicator Analysis
+
+The correlation analysis and GDP growth–unemployment comparison show that short-term economic growth does not fully explain labour-market outcomes.
+
+Main observations:
+
+- GDP growth and unemployment do not display a strong relationship in this sample.
+- Spain maintained high unemployment even during periods of positive GDP growth.
+- Germany achieved lower unemployment across different economic conditions.
+
+These results suggest that structural characteristics influence labour-market performance.
+
+**Important limitation:** these relationships are descriptive. Correlation does not imply causation.
+
+---
+
+# Power BI Dashboard
+
+The project includes a four-page interactive Power BI dashboard designed to communicate the main economic insights.
+
+## Dashboard Overview
+
+![Overview Dashboard](images/overview.png)
+
+The overview page presents:
+
+- Average GDP growth;
+- Average inflation;
+- Average unemployment;
+- Country filtering;
+- Main comparative indicators.
+
+---
+
+## GDP Growth Dashboard
+
+![GDP Growth Dashboard](images/gdp-growth.png)
+
+This page analyses:
+
+- Annual GDP growth evolution;
+- Country comparison;
+- European Union benchmark;
+- Average GDP ranking;
+- Impact of major crises.
+
+---
+
+## Inflation Dashboard
+
+![Inflation Dashboard](images/inflation.png)
+
+This page presents:
+
+- Inflation trends by country;
+- ECB 2% target reference;
+- European Union comparison;
+- Inflation stability comparison.
+
+---
+
+## Unemployment Dashboard
+
+![Unemployment Dashboard](images/unemployment.png)
+
+This page focuses on:
+
+- Unemployment evolution;
+- Cross-country comparison;
+- Labour-market divergence;
+- Long-term structural differences.
+
+---
+# Business and Policy Implications
+
+## Labour Market Divergence
+
+The persistent differences in unemployment rates highlight that economic growth alone is not sufficient to guarantee labour-market convergence.
+
+The analysis suggests the importance of:
+
+- Active labour-market policies;
+- Skills development and education;
+- Better matching between workers and employers;
+- Reducing labour-market segmentation;
+- Country-specific institutional reforms.
+
+Spain and Italy illustrate that strong recovery phases can coexist with persistent unemployment challenges.
+
+---
+
+## Growth and Productivity
+
+Italy's weak long-term GDP growth highlights deeper structural challenges beyond short-term economic cycles.
+
+Potential areas for improvement include:
+
+- Productivity growth;
+- Innovation and investment;
+- Human capital development;
+- Business dynamism;
+- Administrative efficiency.
+
+Long-term economic performance depends not only on macroeconomic stability but also on structural competitiveness.
+
+---
+
+## Fiscal Coordination in the Eurozone
+
+The existence of a common monetary policy means that Eurozone countries cannot independently adjust interest rates to country-specific shocks.
+
+The results highlight the importance of:
+
+- Coordinated fiscal policies;
+- European investment mechanisms;
+- Risk-sharing instruments;
+- Maintaining fiscal buffers during economic expansions.
+
+These mechanisms can help reduce divergence during asymmetric crises.
+
+---
+
+## Inflation Management
+
+Inflation responses differed significantly across countries after 2021.
+
+This demonstrates that a single monetary policy can have different effects depending on national economic structures.
+
+Complementary national fiscal measures may therefore help address country-specific inflation pressures while maintaining overall monetary stability.
+
+---
+
+# SQL Analysis
+
+To complement the Python analysis, the project includes SQL queries using SQLite.
+
+The SQL analysis covers:
+
+## Average Economic Indicators by Country
+
+Comparison of:
+
+- Average GDP growth;
+- Average inflation;
+- Average unemployment.
+
+## Best and Worst GDP Performances
+
+Identification of:
+
+- Maximum GDP growth;
+- Minimum GDP growth;
+- Average performance.
+
+## Inflation Target Analysis
+
+Measurement of:
+
+- Number of years above the ECB 2% inflation target;
+- Average inflation during above-target years.
+
+## Crisis Analysis
+
+Comparison of major economic shocks:
+
+- 2008 Financial Crisis;
+- COVID-19 crisis.
+
+The analysis shows that:
+
+- COVID-19 produced the largest immediate GDP contraction;
+- The 2008 crisis generated longer-lasting labour-market effects, especially in Spain.
+
+---
+
+# Repository Structure
+
 ```
-
-The notebook loads, cleans, reshapes and merges these datasets during execution.
-
----
-
-## Data Preparation
-
-The original World Bank data were downloaded as three separate CSV files covering GDP growth, inflation and unemployment.
-
-The preparation process included:
-
-1. Removing the first four World Bank metadata rows;
-2. Reading the correct row as the column header;
-3. Filtering the data to the selected countries;
-4. Selecting the period from 2000 to 2023;
-5. Reshaping the datasets from wide to long format;
-6. Converting years and indicator values to numerical types;
-7. Merging the three indicators using country and year;
-8. Checking missing values and indicator consistency;
-9. Creating an analysis-ready DataFrame inside the notebook.
-
-The merged dataset follows this structure:
-
-| Country | Year | Inflation | GDP Growth | Unemployment |
-|---|---:|---:|---:|---:|
-| Belgium | 2000 | 2.54 | 3.72 | 6.59 |
-| Germany | 2000 | 1.44 | 2.88 | 7.92 |
-| Spain | 2000 | 3.43 | 5.20 | 13.79 |
-
----
-
-
-## Key Findings
-
-### GDP Growth
-
-The five economies followed broadly similar cyclical patterns, reflecting their exposure to common shocks and a shared monetary environment.
-
-- Spain experienced the deepest contraction in 2020, at approximately **-10.94%**.
-- The subsequent recovery was relatively rapid across the sample.
-- Italy recorded the weakest long-term performance, with average annual GDP growth of approximately **0.56%** over 2000–2023.
-
-The results suggest that common business cycles coexist with persistent differences in productive capacity and long-term growth.
-
-### Inflation
-
-During most of the 2010s, inflation remained close to or below the ECB's 2% target before increasing sharply after 2021.
-
-In 2022:
-
-- France recorded inflation of approximately **5.2%**;
-- Germany recorded approximately **6.9%**;
-- Italy, Spain and Belgium all exceeded **8%**;
-- Belgium recorded the highest rate in the sample, at approximately **9.6%**.
-
-France and Germany recorded the lowest mean absolute deviations from the ECB's 2% target over the full period.
-
-### Unemployment
-
-Unemployment displayed the strongest evidence of structural divergence.
-
-- Spain's unemployment rate peaked at approximately **26% in 2013**.
-- Germany's unemployment rate fell below **4% in 2017** and remained close to 3% in 2023.
-- Italy experienced persistent labour-market weakness, particularly after the Eurozone sovereign-debt crisis.
-- Belgium and France occupied intermediate positions.
-
-Cross-country unemployment dispersion increased sharply after the global financial crisis and peaked at approximately **7 percentage points in 2013**.
-
-Although dispersion subsequently declined, substantial labour-market differences remained visible in 2023.
-
-### Cross-Indicator Analysis
-
-The correlation heatmap and GDP growth–unemployment scatterplot indicate that the differences between countries cannot be explained by short-term GDP growth alone.
-
-Spain maintained high unemployment even during years of positive growth, whereas Germany recorded lower unemployment across a wide range of growth outcomes.
-
-This suggests that labour-market institutions, skills, labour-market segmentation and other structural factors may play an important role.
-
-> **Caution:** These relationships are descriptive. Correlation does not imply causality, and the analysis does not control for omitted variables or common macroeconomic shocks.
-
----
-
-## Business and Policy Implications
-
-### Labour-Market Policy
-
-Persistent unemployment differences highlight the importance of:
-
-- active labour-market policies;
-- skills development;
-- improved matching between workers and employers;
-- reduced labour-market segmentation;
-- country-specific institutional reforms.
-
-Economic growth alone may not be sufficient to address persistent unemployment when structural barriers remain.
-
-### Growth and Productivity
-
-Italy's weak average GDP growth suggests a need for policies supporting productivity, investment, innovation, business dynamism, human capital and administrative efficiency.
-
-### Fiscal Coordination
-
-Eurozone members cannot use independent monetary policy to respond to country-specific shocks.
-
-National fiscal policy, European coordination and risk-sharing mechanisms therefore remain important for limiting persistent divergence.
-
-### Inflation Management
-
-Differences in national inflation responses imply that a uniform ECB policy can have heterogeneous effects across member states.
-
-Targeted national fiscal measures may therefore complement monetary policy, provided that they do not generate excessive aggregate demand.
-
----
-
-## Power BI Dashboard
-
-The Power BI report contains four pages.
-
-### 1. Overview
-
-The Overview page presents:
-
-- average GDP growth;
-- average inflation;
-- average unemployment;
-- an interactive country filter;
-- a country-level unemployment ranking;
-- a summary of the main results.
-
-![Dashboard overview](images/overview.png)
-
-### 2. GDP Growth
-
-The GDP page presents:
-
-- annual GDP growth by country;
-- the European Union benchmark;
-- an average GDP growth ranking;
-- the 2008 global financial crisis;
-- the 2020 COVID-19 shock.
-
-![GDP growth dashboard](images/gdp-growth.png)
-
-### 3. Inflation
-
-The Inflation page presents:
-
-- annual inflation by country;
-- the European Union benchmark;
-- the ECB's 2% reference line;
-- a country ranking based on mean absolute deviation from the ECB target.
-
-![Inflation dashboard](images/inflation.png)
-
-### 4. Unemployment
-
-The Unemployment page presents:
-
-- annual unemployment rates by country;
-- the European Union benchmark;
-- annual cross-country unemployment dispersion;
-- structural differences between national labour markets.
-
-![Unemployment dashboard](images/unemployment.png)
-
----
-
-## Repository Structure
-
-```text
 eurozone-convergence-analysis/
+
 │
 ├── eurozone_analysis.ipynb
 │
@@ -298,122 +397,141 @@ eurozone-convergence-analysis/
 │   ├── inflation.png
 │   └── unemployment.png
 │
-├── README.md
 ├── requirements.txt
+├── README.md
 └── .gitignore
 ```
 
 ---
 
-## How to Explore the Project
+# How to Explore the Project
 
-### Jupyter Notebook
+## Jupyter Notebook
 
-The complete Python analysis is available at:
+The complete analysis is available in:
 
-```text
+```
 eurozone_analysis.ipynb
 ```
 
-The notebook is saved with its outputs, allowing its tables and visualisations to be viewed directly on GitHub.
+The notebook contains:
 
-### Power BI
+- Data preparation;
+- Exploratory analysis;
+- Visualisations;
+- SQL queries;
+- Economic interpretation.
 
-The interactive report can be opened with Power BI Desktop:
+The notebook is saved with outputs, allowing the analysis to be viewed directly on GitHub.
 
-```text
+---
+
+## Power BI Dashboard
+
+The interactive dashboard can be opened with Power BI Desktop:
+
+```
 dashboard/eurozone_dashboard.pbix
 ```
 
-A non-interactive PDF version is available at:
+A PDF export is also available:
 
-```text
+```
 dashboard/eurozone_dashboard.pdf
 ```
 
 ---
 
-## How to Reproduce the Analysis
+# How to Reproduce the Analysis
 
-1. Clone the repository:
+Clone the repository:
 
 ```bash
-git clone https://github.com/[YOUR GITHUB USERNAME]/eurozone-convergence-analysis.git
+git clone https://github.com/[YOUR_USERNAME]/eurozone-convergence-analysis.git
 ```
 
-2. Move into the repository:
+Navigate to the project folder:
 
 ```bash
 cd eurozone-convergence-analysis
 ```
 
-3. Install the required Python packages:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Launch Jupyter from the repository root:
+Launch Jupyter Notebook:
 
 ```bash
 jupyter notebook
 ```
 
-5. Open:
+Open:
 
-```text
+```
 eurozone_analysis.ipynb
 ```
 
-6. Restart the kernel and run all cells from top to bottom.
+Run all cells from the beginning.
 
-> The notebook and the three source CSV files must remain in the same directory unless the file paths in the notebook are updated.
-
-7. Open the `.pbix` file with Power BI Desktop to explore the interactive dashboard.
+The notebook and CSV files must remain in their original structure unless file paths are modified.
 
 ---
 
-## Limitations
+# Limitations
 
-1. The analysis covers only five selected economies and therefore does not represent the entire Eurozone.
-2. Only three macroeconomic indicators are considered.
-3. The study is primarily descriptive and does not establish causal relationships.
-4. Correlation coefficients may be affected by common shocks, structural differences and omitted variables.
-5. Period averages can conceal substantial changes between sub-periods.
-6. National aggregates hide regional and sectoral heterogeneity.
-7. The cross-country standard deviation provides descriptive evidence of convergence or divergence but is not a formal econometric test.
-8. The analysis ends in 2023 and does not assess subsequent developments.
+Several limitations should be considered:
 
----
-
-## Future Extensions
-
-Possible extensions include:
-
-- estimating an Okun's law specification using annual changes in unemployment;
-- testing the inflation–unemployment relationship;
-- introducing country fixed effects;
-- conducting statistical significance tests;
-- adding productivity, public debt and real GDP per capita;
-- extending the sample to additional Eurozone countries;
-- conducting formal sigma- and beta-convergence tests;
-- separating the period into pre-crisis, sovereign-debt-crisis, pre-COVID and post-COVID sub-periods.
+- The study focuses on five Eurozone economies and does not represent the entire Eurozone.
+- Only three macroeconomic indicators are analysed.
+- The analysis is descriptive and does not establish causal relationships.
+- Correlations may be influenced by common shocks and omitted variables.
+- Period averages can hide important differences between economic phases.
+- National indicators may hide regional and sectoral disparities.
+- Formal econometric convergence tests were not performed.
+- The analysis ends in 2023 and does not include more recent developments.
 
 ---
 
-## Author
+# Future Extensions
 
-**Rose Fidalgo Amorim**
+Possible improvements include:
 
-Economics and Management student specialising in Applied Economics.
+- Adding productivity and GDP per capita indicators;
+- Including public debt and investment variables;
+- Expanding the sample to additional Eurozone countries;
+- Performing formal beta and sigma convergence tests;
+- Running panel regression models with country fixed effects;
+- Analysing different economic periods separately:
+  - pre-2008;
+  - financial crisis;
+  - sovereign debt crisis;
+  - COVID-19;
+  - post-COVID inflation period.
 
-### Areas of Interest
+---
 
-- Quantitative analysis
-- Applied economics
-- Data analytics
-- Business intelligence
-- Economic research
+# Author
 
+## Rose Fidalgo Amorim
+
+Economics and Management student specialising in Applied Economics, with an interest in quantitative analysis, economic research and data analytics.
+
+## Areas of Interest
+
+- Data Analytics
+- Business Intelligence
+- Applied Economics
+- Economic Research
+- Quantitative Methods
+
+---
+
+# Contact
+
+Feel free to explore the repository and connect for discussions about economics, data analysis and business intelligence projects.
+---
 **LinkedIn:** https://www.linkedin.com/in/rose-amorim-2287923a3/
 **GitHub:** https://github.com/Rose-FidalgoAmorim
